@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ article.title }}{% endblock %}  <!-- Title for the specific article -->
+
+{% block content %}
+
+
+<div class="container my-4"> <!-- Bootstrap container with margin -->
+    <div class="article-container">
+        <h1>{{ article.title }}</h1>
+        <p class="lead">{{ article.content }}</p>
+        <a href="/" class="btn btn-secondary">Back to Home</a> <!-- Button to return to home -->
+    </div>
+</div>
+{% endblock %}

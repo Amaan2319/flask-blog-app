@@ -1,0 +1,89 @@
+{% extends 'base.html' %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+
+
+
+<div id="part2">
+    <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"
+                aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"
+                aria-label="Slide 2"></button>
+        </div>
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="../static/home-bg.jpg" class="d-block w-100" alt="..." style="height: 80vh;">
+                <div class="carousel-caption d-none d-md-block">
+                    <h5>First slide label</h5>
+                    <p>Some representative placeholder content for the first slide.</p>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img src="../static/home-bg.jpg" class="d-block w-100" alt="..." style="height: 50vh;">
+                <div class="carousel-caption d-none d-md-block">
+                    <h5>Second slide label</h5>
+                    <p>Some representative placeholder content for the second slide.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="part3">
+    <div class="album py-5 bg-light">
+        <div class="container">
+            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+                {% for article in articles %}
+                <div class="col">
+                    <div class="card shadow-sm">
+                        {% if article.image_filename %}
+                        <img src="{{ url_for('static', filename='uploads/' + article.image_filename) }}" class="card-img-top uniform-img" alt="Post Image">
+                        {% else %}
+                        <svg class="bd-placeholder-img card-img-top uniform-img" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false">
+                            <title>Placeholder</title>
+                            <rect width="100%" height="100%" fill="#55595c"></rect>
+                            <text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text>
+                        </svg>
+                        {% endif %}
+                        
+                        <div class="card-body">
+                            <h5 class="post-title">{{ article.title }}</h5>
+                            <p class="card-text">{{ article.content[:80] }}...</p> <!-- Preview content, limited to 80 characters -->
+                            <p class="post-meta">Posted by <i class="text-warning bold">{{ article.author }}</i></p>
+                            <a href="/post/{{ article.id }}" type="button" class="btn my-2 btn-primary">Read More</a> <br>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="btn-group">
+                                    {% if name != "guest" %}
+                                    <a href="/update/{{ article.id }}" type="button" class="btn btn-sm btn-outline-warning">Edit</a>
+                                    <a href="/delete/{{ article.id }}" type="button" class="btn btn-sm btn-outline-danger">Delete</a>
+                                    {% endif %}
+                                </div>
+                                <small class="text-muted">{{ article.post_date.strftime('%B %d, %Y') }}</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+
+<style>
+    .uniform-img {
+        width: 100%;
+        height: 180px; /* Reduced height for uniformity */
+        object-fit: cover; /* Maintains aspect ratio */
+    }
+    .card {
+        height: auto; /* Allow cards to be smaller and adjust based on content */
+        max-width: 300px; /* Set a maximum width for cards */
+        margin: auto; /* Center the cards in their columns */
+    }
+</style>

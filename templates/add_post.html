@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+
+{% block title %}Add Post{% endblock %}
+
+{% block content %}
+<div id="part3">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-md-10 mx-auto">
+                <form name="addForm" id="addForm" method="POST" action="{{ url_for('add_post') }}" enctype="multipart/form-data" novalidate>
+                    <div class="control-group">
+                        <div class="form-group floating-label-form-group controls">
+                            <label for="title">Title <span class="text-danger">*</span></label> <!-- Indicate required fields -->
+                            <input type="text" class="form-control" placeholder="Title" name="title" id="title" required 
+                                   data-validation-required-message="Please enter a title.">
+                            <p class="help-block text-danger"></p>
+                        </div>
+                    </div>
+
+                    <div class="control-group">
+                        <div class="form-group col-xs-12 floating-label-form-group controls">
+                            <label for="author">Author <span class="text-danger">*</span></label>
+                            <input type="text" class="form-control" placeholder="Author" name="author" id="author" required 
+                                   data-validation-required-message="Please enter your name.">
+                            <p class="help-block text-danger"></p>
+                        </div>
+                    </div>
+
+                    <div class="control-group">
+                        <div class="form-group floating-label-form-group controls">
+                            <label for="content">Blog Content <span class="text-danger">*</span></label>
+                            <textarea rows="5" cols="10" class="form-control" placeholder="Blog content" name="content" id="content" required 
+                                      data-validation-required-message="Please enter the blog content."></textarea>
+                            <p class="help-block text-danger"></p>
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="formFileSm" class="form-label">Upload Image <span class="text-danger">*</span></label> <!-- Indicate required fields -->
+                        <input class="form-control form-control-sm" id="formFileSm" type="file" name="file" required>
+                    </div>
+
+                    <br>
+                    <div id="success"></div>
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-lg w-100 btn-outline-secondary" id="sendMessageButton">Post Blog</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

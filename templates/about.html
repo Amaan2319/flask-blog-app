@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block title %}About{% endblock %}
+
+{% block content %}
+<div id="part2">
+    <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"
+                aria-current="true" aria-label="Slide 1"></button>
+        </div>
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="../static/about-bg.png" class="d-block container w-100" style="height: 100vh;" alt="About Image">
+                <div class="carousel-caption d-none d-md-block">
+                    <h5 class="display-4 text-warning">About Us</h5>
+                    <p class="lead text-light">Learn more about our blogging platform and community.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container my-4">
+    <h1 class="heading fs-1 text-primary">Welcome to My Blogs!</h1>
+    <p class="lead text-muted">My Blogs is a user-friendly web application designed for sharing and exploring diverse topics through engaging articles. Whether you're a seasoned writer or a casual blogger, our platform provides an intuitive space to express your thoughts, share experiences, and connect with a vibrant community of readers.</p>
+    
+    <h3 class="text-success">Key Features:</h3>
+    <ul class="list-group">
+        <li class="list-group-item"><strong>User-Friendly Interface</strong>: Our clean and modern design makes it easy for users to navigate the platform, discover new articles, and share their own insights.</li>
+        <li class="list-group-item"><strong>Create and Manage Posts</strong>: Users can easily add new blog posts, complete with titles, content, images, and author information. The streamlined form ensures that every entry captures the essence of your message.</li>
+        <li class="list-group-item"><strong>Interactive Blog Experience</strong>: Readers can engage with articles by leaving comments, sharing posts, and following their favorite authors to stay updated on new content.</li>
+        <li class="list-group-item"><strong>Flash Messaging System</strong>: Receive instant feedback on your actions! Our flash messaging system alerts users about successful submissions, errors, or important notifications.</li>
+        <li class="list-group-item"><strong>Responsive Design</strong>: Access My Blogs from any device! Our responsive layout ensures a seamless browsing experience whether you’re on a desktop, tablet, or smartphone.</li>
+        <li class="list-group-item"><strong>Secure User Authentication</strong>: Our application provides secure login and logout functionalities, ensuring your data and posts remain safe.</li>
+    </ul>
+    
+    <h3 class="text-warning">Join Our Community</h3>
+    <p>Whether you’re here to read, write, or simply explore, My Blogs is your go-to destination for engaging content and creative expression. Join us today, and start sharing your stories with the world!</p>
+</div>
+{% endblock %}
